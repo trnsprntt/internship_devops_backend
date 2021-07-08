@@ -3,9 +3,11 @@ name: Lint and Test
 on:
   pull_request:
     branches: [master]
+  workflow_dispatch:
+    
 
 jobs:
-  lint and test:
+  lint-and-test:
     name: Lint and Test Code Base
     runs-on: ubuntu-latest
 
@@ -27,3 +29,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args:
+            -Dsonar.organization=trnsprntt
+            -Dsonar.projectKey=internship_devops_backend
+            -Dsonar.sources=. 
