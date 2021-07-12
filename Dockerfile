@@ -1,4 +1,4 @@
-FROM node:16-slim
+FROM centos/nodejs-10-centos7
 ENV NODE_ENV=development 
 
 WORKDIR /app
